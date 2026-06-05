@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  api:
+    build: ..
+    ports:
+      - "58080:58080"
+    environment:
+      - BAILIAN_API_KEY=${BAILIAN_API_KEY:-}
+    volumes:
+      - ../references:/app/references:ro
+    restart: unless-stopped
